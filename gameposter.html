@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Theft Auto VI - Welcome to Vice City</title>
+    <style>
+        :root {
+            --primary: #ff2a6d;
+            --secondary: #05d9e8;
+            --dark: #01012b;
+            --accent: #ff33a8;
+            --light: #d1f7ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
+                        url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8fed5198-b334-4d9b-8210-1a72e05d730d.png') no-repeat center center/cover;
+        }
+
+        .logo-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 20px var(--primary));
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .header-content {
+            text-align: center;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(255, 42, 109, 0.7);
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--light);
+            font-size: 1.2rem;
+            text-decoration: none;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+
+        section {
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(1, 1, 43, 0.7);
+            border-top: 3px solid var(--primary);
+            padding: 2rem;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 42, 109, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .characters {
+            background: linear-gradient(rgba(1,1,43,0.9), rgba(1,1,43,0.9)), 
+                        url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a4410509-fb8a-445a-8e74-c338bc812119.png') no-repeat center center/cover;
+            text-align: center;
+        }
+
+        .character-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(0,0,0,0.7);
+            padding: 2rem;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .character-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .character-name {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .character-bio {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .vice-city-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .location-card {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .location-card:hover {
+            transform: scale(1.03);
+        }
+
+        .location-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .location-card:hover .location-image {
+            transform: scale(1.1);
+        }
+
+        .location-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 1rem;
+        }
+
+        .release-countdown {
+            background: linear-gradient(to right, var(--dark), var(--primary), var(--dark));
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .time-unit {
+            background: rgba(0,0,0,0.7);
+            padding: 1.5rem;
+            border-radius: 5px;
+            min-width: 100px;
+        }
+
+        .time-value {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .time-label {
+            font-size: 1rem;
+            color: var(--light);
+        }
+
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/93d370b4-bb0d-4c2b-97b5-6d99c3a35cd1.png" alt="GTA VI official logo with neon Vice City pink and blue colors" class="logo">
+            </div>
+            <h1>Grand Theft Auto VI</h1>
+            <p class="subtitle">Return to Vice City - 2025</p>
+        </div>
+        <a href="#features" class="scroll-down">Scroll Down</a>
+    </header>
+
+    <section id="features" class="features-section">
+        <h2 class="section-title">Game Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🌟</div>
+                <h3 class="feature-title">Enhanced Graphics</h3>
+                <p>Experience Vice City like never before with cutting-edge visuals powered by the latest RAGE engine technology.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌆</div>
+                <h3 class="feature-title">Largest Map Ever</h3>
+                <p>Explore the sprawling metropolis of Vice City and beyond, with more areas to discover than any previous GTA.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎭</div>
+                <h3 class="feature-title">Deeper Stories</h3>
+                <p>Engage with rich narratives featuring morally ambiguous characters in Rockstar's most ambitious story yet.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="characters">
+        <h2 class="section-title">Meet Lucia</h2>
+        <div class="character-card">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2d6868b7-6eff-4d15-99ac-2962293e50f9.png" alt="Concept art of Lucia, GTA VI's female protagonist: a young Latina woman with intense gaze, wearing streetwear, standing in front of Vice City skyline" class="character-image">
+            <h3 class="character-name">Lucia</h3>
+            <p class="character-bio">The first female protagonist in the Grand Theft Auto series, Lucia is a complex character with her own motivations and ambitions in the neon-soaked streets of Vice City. With a troubled past and an uncertain future, her journey will take players through the criminal underworld like never before.</p>
+        </div>
+    </section>
+
+    <section class="locations">
+        <h2 class="section-title">Vice City Revived</h2>
+        <div class="vice-city-gallery">
+            <div class="location-card">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/60a63a2b-c95b-44e8-bd1b-b5511cd54992.png" alt="Art deco ocean view hotels lining Miami Beach with neon signs reflecting in the water at dusk" class="location-image">
+                <div class="location-overlay">
+                    <h3>Ocean Beach</h3>
+                </div>
+            </div>
+            <div class="location-card">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7d1b166b-3a55-4b16-9a10-ce9bcba75f70.png" alt="Downtown Vice City skyline at night with towering skyscrapers and neon lights" class="location-image">
+                <div class="location-overlay">
+                    <h3>Downtown Vice City</h3>
+                </div>
+            </div>
+            <div class="location-card">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f45daddf-35f6-4afc-b6fd-256e3ee6c0b3.png" alt="Havana-inspired Little Haiti district with colorful buildings and street vendors" class="location-image">
+                <div class="location-overlay">
+                    <h3>Little Havana</h3>
+                </div>
+            </div>
+            <div class="location-card">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5cdda3bd-5c22-4b43-9a51-e1055b72d956.png" alt="Luxury marina with yachts and speedboats under a clear blue sky in the Key West inspired area" class="location-image">
+                <div class="location-overlay">
+                    <h3>Vice Keys</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="release-countdown">
+        <h2 class="section-title">Coming 2025</h2>
+        <div class="timer">
+            <div class="time-unit">
+                <div class="time-value" id="days">730</div>
+                <div class="time-label">Days</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="hours">00</div>
+                <div class="time-label">Hours</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="minutes">00</div>
+                <div class="time-label">Minutes</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="seconds">00</div>
+                <div class="time-label">Seconds</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2023 Rockstar Games. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Countdown timer to 2025 release
+        function updateCountdown() {
+            const releaseDate = new Date('January 1, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = releaseDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Initial update
+        updateCountdown();
+        
+        // Update every second
+        setInterval(updateCountdown, 1000);
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
