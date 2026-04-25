@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M Zubair Aslam | Software Engineer</title>
+  <meta name="description" content="Portfolio of M Zubair Aslam – Software Engineering Student, Frontend Developer & Problem Solver." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════ CURSOR ═══════════════ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ═══════════════ NAVBAR ═══════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>ZA<span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="tag-dot"></span>
+        <span>Available for Freelance</span>
+      </div>
+
+      <h1 class="hero-name">
+        <span class="name-line" data-aos="fade-up">M Zubair</span>
+        <span class="name-line accent" data-aos="fade-up" data-aos-delay="100">Aslam</span>
+      </h1>
+
+      <div class="hero-title">
+        <span class="title-static">I'm a&nbsp;</span>
+        <span class="typing-wrapper">
+          <span class="typed-text" id="typedText"></span>
+          <span class="cursor-blink">|</span>
+        </span>
+      </div>
+
+      <p class="hero-tagline" data-aos="fade-up" data-aos-delay="300">
+        Crafting elegant solutions to complex problems — one line of code at a time.
+      </p>
+
+      <div class="hero-cta" data-aos="fade-up" data-aos-delay="400">
+        <a href="#contact" class="btn btn-primary">
+          <i class="fas fa-paper-plane"></i> Hire Me
+        </a>
+        <a href="#projects" class="btn btn-outline">
+          <i class="fas fa-code"></i> View Projects
+        </a>
+      </div>
+
+      <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+        <div class="stat">
+          <span class="stat-num" data-target="15">0</span><span>+</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="4">0</span><span>th</span>
+          <span class="stat-label">Semester</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="100">0</span><span>%</span>
+          <span class="stat-label">Dedication</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ABOUT ═══════════════ -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual" data-aos="fade-right">
+          <div class="about-img-wrap">
+            <div class="about-avatar">
+              <div class="avatar-initials">ZA</div>
+              <div class="avatar-ring ring-1"></div>
+              <div class="avatar-ring ring-2"></div>
+            </div>
+            <div class="about-badge badge-1">
+              <i class="fas fa-code"></i>
+              <span>Dev</span>
+            </div>
+            <div class="about-badge badge-2">
+              <i class="fas fa-brain"></i>
+              <span>Problem Solver</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text" data-aos="fade-left">
+          <div class="section-label">Who I Am</div>
+          <h2 class="section-title">Passionate About <span class="accent">Building Things</span></h2>
+          <p class="about-desc">
+            Hey! I'm <strong>M Zubair Aslam</strong>, a 4th semester Software Engineering student with an obsession for clean code and elegant UI. I live at the intersection of logic and creativity — where algorithms meet aesthetics.
+          </p>
+          <p class="about-desc">
+            From writing efficient C++ algorithms to crafting pixel-perfect web interfaces, I approach every challenge with curiosity and a problem-first mindset. Currently building my skill set in frontend development while maintaining a deep appreciation for the fundamentals.
+          </p>
+
+          <div class="about-highlights">
+            <div class="highlight">
+              <i class="fas fa-graduation-cap"></i>
+              <span>BS Software Engineering — 4th Semester</span>
+            </div>
+            <div class="highlight">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Lahore, Pakistan</span>
+            </div>
+            <div class="highlight">
+              <i class="fas fa-language"></i>
+              <span>Urdu, English</span>
+            </div>
+            <div class="highlight">
+              <i class="fas fa-briefcase"></i>
+              <span>Open to Freelance & Internship</span>
+            </div>
+          </div>
+
+          <a href="#contact" class="btn btn-primary mt-2">Let's Talk <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SKILLS ═══════════════ -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-label">My Arsenal</div>
+        <h2 class="section-title">Skills & <span class="accent">Technologies</span></h2>
+        <p class="section-sub">Tools and languages I use to bring ideas to life</p>
+      </div>
+
+      <div class="skills-grid" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="skill-card" data-aos="zoom-in" data-aos-delay="0">
+          <div class="skill-icon" style="--clr:#3776AB">
+            <i class="fab fa-python"></i>
+          </div>
+          <h3>Python</h3>
+          <p>Scripting, automation, OOP, and problem solving using Python's rich ecosystem.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" data-width="85">
+              <div class="skill-fill"></div>
+            </div>
+            <span class="skill-pct">85%</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="zoom-in" data-aos-delay="60">
+          <div class="skill-icon" style="--clr:#00599C">
+            <i class="fas fa-copyright"></i>
+          </div>
+          <h3>C / C++</h3>
+          <p>Low-level programming, memory management, OOP, and competitive programming.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" data-width="80">
+              <div class="skill-fill"></div>
+            </div>
+            <span class="skill-pct">80%</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="zoom-in" data-aos-delay="120">
+          <div class="skill-icon" style="--clr:#FF6B35">
+            <i class="fas fa-sitemap"></i>
+          </div>
+          <h3>Data Structures & Algorithms</h3>
+          <p>Arrays, trees, graphs, sorting, searching — DSA at its core.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" data-width="78">
+              <div class="skill-fill"></div>
+            </div>
+            <span class="skill-pct">78%</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="zoom-in" data-aos-delay="180">
+          <div class="skill-icon" style="--clr:#E34F26">
+            <i class="fab fa-html5"></i>
+          </div>
+          <h3>HTML5 & CSS3</h3>
+          <p>Semantic markup, responsive layouts, animations, and modern CSS techniques.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" data-width="90">
+              <div class="skill-fill"></div>
+            </div>
+            <span class="skill-pct">90%</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="zoom-in" data-aos-delay="240">
+          <div class="skill-icon" style="--clr:#F7DF1E">
+            <i class="fab fa-js-square"></i>
+          </div>
+          <h3>JavaScript</h3>
+          <p>Vanilla JS, DOM manipulation, async programming, and interactive UIs.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" data-width="82">
+              <div class="skill-fill"></div>
+            </div>
+            <span class="skill-pct">82%</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="skill-icon" style="--clr:#336791">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Databases</h3>
+          <p>SQL, relational schemas, queries, and database design principles.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" data-width="72">
+              <div class="skill-fill"></div>
+            </div>
+            <span class="skill-pct">72%</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PROJECTS ═══════════════ -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-label">What I've Built</div>
+        <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+        <p class="section-sub">A selection of things I've created with passion</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="project-header">
+            <div class="project-icon-wrap" style="--clr:#00D9FF">
+              <i class="fas fa-tasks"></i>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Task Manager App</h3>
+          <p class="project-desc">A full-featured task management web app with CRUD operations, priority tags, deadline alerts, and local storage persistence.</p>
+          <div class="project-tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>LocalStorage</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="project-header">
+            <div class="project-icon-wrap" style="--clr:#A78BFA">
+              <i class="fas fa-sort-amount-down"></i>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Sorting Visualizer</h3>
+          <p class="project-desc">Interactive visualization of Bubble, Merge, Quick, and Insertion sort algorithms with adjustable speed and array size controls.</p>
+          <div class="project-tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>DSA</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="project-header">
+            <div class="project-icon-wrap" style="--clr:#34D399">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Student Grade Calculator</h3>
+          <p class="project-desc">C++ console application that calculates GPA, assigns letter grades, and tracks academic progress across multiple subjects.</p>
+          <div class="project-tech">
+            <span>C++</span><span>OOP</span><span>File I/O</span>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="project-header">
+            <div class="project-icon-wrap" style="--clr:#FB923C">
+              <i class="fas fa-cloud-sun"></i>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Weather Dashboard</h3>
+          <p class="project-desc">Real-time weather dashboard using OpenWeatherMap API with 5-day forecast, search by city, and responsive card layout.</p>
+          <div class="project-tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>REST API</span>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="320">
+          <div class="project-header">
+            <div class="project-icon-wrap" style="--clr:#F472B6">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Library Management System</h3>
+          <p class="project-desc">Python + SQLite desktop app for managing library inventory, book issuing, returns, and generating fine reports.</p>
+          <div class="project-tech">
+            <span>Python</span><span>SQLite</span><span>OOP</span><span>Tkinter</span>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card featured" data-aos="fade-up" data-aos-delay="400">
+          <div class="project-header">
+            <div class="project-icon-wrap" style="--clr:#60A5FA">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <div class="featured-badge">Featured</div>
+          <h3 class="project-title">DSA Problem Tracker</h3>
+          <p class="project-desc">A personal tracker to log solved DSA problems with topic tags, difficulty level, and solution notes — built to track competitive programming progress.</p>
+          <div class="project-tech">
+            <span>JavaScript</span><span>CSS Grid</span><span>LocalStorage</span><span>DSA</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SERVICES ═══════════════ -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-label">What I Offer</div>
+        <h2 class="section-title">My <span class="accent">Services</span></h2>
+        <p class="section-sub">Professional services available on Fiverr & Freelancer</p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>Web Development</h3>
+          <p>Clean, responsive, and modern websites built from scratch using HTML, CSS & JavaScript. Mobile-first approach with cross-browser compatibility.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Landing Pages</li>
+            <li><i class="fas fa-check"></i> Portfolio Sites</li>
+            <li><i class="fas fa-check"></i> Responsive UI</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon">
+            <i class="fas fa-bug"></i>
+          </div>
+          <h3>Bug Fixing</h3>
+          <p>Fast and reliable bug fixing for HTML/CSS layout issues, JavaScript errors, Python scripts, and C/C++ programs.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> CSS/Layout Fixes</li>
+            <li><i class="fas fa-check"></i> JS Debugging</li>
+            <li><i class="fas fa-check"></i> Logic Errors</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h3>Programming Assignments</h3>
+          <p>Accurate solutions for university-level programming assignments in C, C++, Python, Java, and web technologies with full explanation.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> C / C++ / Python</li>
+            <li><i class="fas fa-check"></i> OOP Projects</li>
+            <li><i class="fas fa-check"></i> Documented Code</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <h3>DSA Problem Solving</h3>
+          <p>Expert help with Data Structures & Algorithms problems — from arrays and linked lists to graphs, trees, and dynamic programming.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> LeetCode / HackerRank</li>
+            <li><i class="fas fa-check"></i> Step-by-step Explanation</li>
+            <li><i class="fas fa-check"></i> Optimized Solutions</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="services-cta" data-aos="fade-up">
+        <a href="https://fiverr.com" target="_blank" class="btn btn-primary">
+          <i class="fab fa-fiverr"></i> Hire on Fiverr
+        </a>
+        <a href="https://freelancer.com" target="_blank" class="btn btn-outline">
+          <i class="fas fa-handshake"></i> Hire on Freelancer
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ EDUCATION ═══════════════ -->
+  <section class="section education" id="education">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-label">My Journey</div>
+        <h2 class="section-title">Education & <span class="accent">Experience</span></h2>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="0">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2023 – Present</div>
+            <h3>BS Software Engineering</h3>
+            <h4>Lahore Garrison University, Lahore</h4>
+            <p>Currently in 4th semester, studying core CS fundamentals: Data Structures, Algorithms, OOP, Database Systems, and Web Engineering.</p>
+            <div class="timeline-tags">
+              <span>4th Semester</span><span>CGPA: 3.5+</span><span>Active</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2023 – Present</div>
+            <h3>Freelance Developer</h3>
+            <h4>Fiverr & Freelancer</h4>
+            <p>Providing web development, bug fixing, and programming assignment services to international clients with consistent 5-star feedback.</p>
+            <div class="timeline-tags">
+              <span>Web Dev</span><span>Bug Fixing</span><span>DSA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2022 – 2024</div>
+            <h3>Intermediate (ICS)</h3>
+            <h4>Garrison Colleges For boys (APS)</h4>
+            <p>Completed FSc Information Computer Science(ICS) with distinction, developing strong foundations in Mathematics and Physics.</p>
+            <div class="timeline-tags">
+              <span>A Grade</span><span>Pre-Engineering</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2020 - 2022</div>
+            <h3>Self-Taught Web Development</h3>
+            <h4>Online Learning</h4>
+            <p>Completed multiple online courses in HTML, CSS, and JavaScript. Built first portfolio and deployed web projects.</p>
+            <div class="timeline-tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CONTACT ═══════════════ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Let's <span class="accent">Work Together</span></h2>
+        <p class="section-sub">Have a project or opportunity? I'd love to hear from you.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info" data-aos="fade-right">
+          <h3>Let's Connect</h3>
+          <p>Whether you need a website, assignment help, or just want to say hi — my inbox is always open.</p>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <span class="contact-label">Email</span>
+                <a href="mailto:mzubairaslammzubairaslam0@gmail.com">mzubairaslammzubairaslam0@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <span class="contact-label">Location</span>
+                <span>Lahore, Pakistan</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <span class="contact-label">Response Time</span>
+                <span>Within 24 hours</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/mzab-bit" target="_blank" class="social-btn github" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/m-zubair-458b7b3a2/" target="_blank" class="social-btn linkedin" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.fiverr.com/mzubairaslammzu/buying?source=avatar_menu_profile" target="_blank" class="social-btn fiverr" title="Fiverr">
+              <i class="fas fa-briefcase"></i>
+            </a>
+            <a href="https://www.freelancer.pk/u/mzubairaslamm3" target="_blank" class="social-btn freelancer" title="Freelancer">
+              <i class="fas fa-handshake"></i>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" data-aos="fade-left" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required />
+              <span class="form-error" id="nameError">Please enter your name</span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required />
+              <span class="form-error" id="emailError">Please enter a valid email</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Project Inquiry / Assignment Help / ..." />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or inquiry..." required></textarea>
+            <span class="form-error" id="messageError">Please enter your message</span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Message</span>
+            <span class="btn-loading"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+          </button>
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-check-circle"></i> Message sent! I'll get back to you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="#home">
+            <span class="logo-bracket">&lt;</span>ZA<span class="logo-bracket">/&gt;</span>
+          </a>
+          <p>Software Engineer · Frontend Dev · Problem Solver</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-social">
+          <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://fiverr.com" target="_blank"><i class="fas fa-briefcase"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> M Zubair Aslam. Crafted with <i class="fas fa-heart" style="color:#FF6B6B"></i> and lots of ☕</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
