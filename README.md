@@ -31,7 +31,7 @@ A fully responsive personal portfolio website featuring:
 ## 📬 Contact Me
 | Platform | Link |
 |----------|------|
-| 📧 Email | your-email@gmail.com |
+| 📧 Email | mzubairaslammzubairaslam0@gmail.com |
 | 💼 Fiverr | fiverr.com/your-username |
 | 🤝 Freelancer | freelancer.com/u/your-username |
 | 🔗 LinkedIn | linkedin.com/in/your-username |
