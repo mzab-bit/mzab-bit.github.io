@@ -7,7 +7,7 @@
 ---
 
 ## 🌐 Portfolio
-👉 **Live:** [mzubairaslamdev.github.io](https://mzubairaslamdev.github.io)
+👉 **Live:** [mzubairaslamdev.github.io](https://mzab-bit.github.io/mzubairaslamdev.github.io/)
 
 ---
 
