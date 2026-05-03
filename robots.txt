@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mzab-bit.github.io/sitemap.xml
