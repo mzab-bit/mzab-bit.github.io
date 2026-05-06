@@ -271,22 +271,34 @@ function initContactForm() {
     if (!validateForm()) return;
 
     // Simulate sending
-    submitBtn.classList.add('loading');
-    submitBtn.querySelector('.btn-text').style.display = 'none';
-    submitBtn.querySelector('.btn-loading').style.display = 'flex';
-    submitBtn.disabled = true;
+const formData = new FormData(form);
 
-    setTimeout(() => {
-      submitBtn.querySelector('.btn-text').style.display = 'flex';
-      submitBtn.querySelector('.btn-loading').style.display = 'none';
-      submitBtn.classList.remove('loading');
-      submitBtn.disabled = false;
-      success.classList.add('show');
-      form.reset();
-
-      // Hide success after 5 seconds
-      setTimeout(() => success.classList.remove('show'), 5000);
-    }, 1800);
+fetch(form.action, {
+  method: 'POST',
+  body: formData,
+  headers: { 'Accept': 'application/json' }
+})
+.then(response => {
+  if (response.ok) {
+    submitBtn.querySelector('.btn-text').style.display = 'flex';
+    submitBtn.querySelector('.btn-loading').style.display = 'none';
+    submitBtn.disabled = false;
+    success.classList.add('show');
+    form.reset();
+    setTimeout(() => success.classList.remove('show'), 5000);
+  } else {
+    alert('Message send nahi hua. Dobara try karo!');
+    submitBtn.querySelector('.btn-text').style.display = 'flex';
+    submitBtn.querySelector('.btn-loading').style.display = 'none';
+    submitBtn.disabled = false;
+  }
+})
+.catch(() => {
+  alert('Network error. Dobara try karo!');
+  submitBtn.querySelector('.btn-text').style.display = 'flex';
+  submitBtn.querySelector('.btn-loading').style.display = 'none';
+  submitBtn.disabled = false;
+});
   });
 
   // Clear errors on input
