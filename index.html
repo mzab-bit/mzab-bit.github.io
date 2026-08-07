@@ -3,22 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>M Zubair Aslam | Software Engineer</title>
-  <meta name="description" content="Portfolio of M Zubair Aslam – Software Engineering Student, Frontend Developer & Problem Solver." />
-  <title>M Zubair Aslam | Software Engineer & Frontend Developer</title>
-  <meta name="description" content="Portfolio of M Zubair Aslam – Software Engineering Student, Frontend Developer from Lahore Pakistan. Available for freelance work." />
-  <meta name="keywords" content="M Zubair Aslam, mzab-bit, Software Engineer, Frontend Developer, Web Developer, Lahore Pakistan, Freelancer, Portfolio" />
+  <!-- ═══ PRIMARY SEO ═══ -->
+  <title>M Zubair Aslam | Web Developer &amp; Software Engineering Student Lahore</title>
+  <meta name="description" content="Portfolio of M Zubair Aslam – freelance web developer &amp; Software Engineering student in Lahore. HTML, CSS, JS, Python, DSA projects &amp; services." />
+  <meta name="keywords" content="M Zubair Aslam, web developer Lahore, software engineering student, frontend developer Pakistan, freelance developer, HTML CSS JavaScript, DSA, portfolio" />
   <meta name="author" content="M Zubair Aslam" />
   <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="M Zubair Aslam | Portfolio" />
-  <meta property="og:description" content="Software Engineering Student & Frontend Developer from Lahore Pakistan." />
-  <meta property="og:url" content="https://mzab-bit.github.io" />
-  <meta property="og:type" content="website" />
-
-  <!-- Canonical -->
   <link rel="canonical" href="https://mzab-bit.github.io/" />
+
+  <!-- ═══ OPEN GRAPH (LinkedIn, WhatsApp, Facebook previews) ═══ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mzab-bit.github.io/" />
+  <meta property="og:title" content="M Zubair Aslam | Web Developer &amp; SE Student – Lahore" />
+  <meta property="og:description" content="Freelance web developer &amp; Software Engineering student from Lahore. Projects in HTML, CSS, JS, Python &amp; DSA. Available for hire." />
+  <meta property="og:image" content="https://mzab-bit.github.io/images/profile.jpg" />
+  <meta property="og:site_name" content="M Zubair Aslam Portfolio" />
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="M Zubair Aslam | Web Developer Portfolio" />
+  <meta name="twitter:description" content="Freelance web developer &amp; SE student from Lahore. HTML, CSS, JS, Python, DSA." />
+  <meta name="twitter:image" content="https://mzab-bit.github.io/images/profile.jpg" />
+
+  <!-- ═══ SCHEMA.ORG STRUCTURED DATA ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "M Zubair Aslam",
+    "url": "https://mzab-bit.github.io",
+    "jobTitle": "Software Engineering Student & Freelance Web Developer",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lahore",
+      "addressCountry": "PK"
+    },
+    "sameAs": [
+      "https://github.com/mzab-bit",
+      "https://linkedin.com/in/mzab-bit",
+      "https://fiverr.com/mzab-bit"
+    ],
+    "knowsAbout": ["Web Development","HTML","CSS","JavaScript","Python","C++","DSA","Databases"]
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,6 +58,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Skip to content (accessibility + SEO) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ═══════════════ CURSOR ═══════════════ -->
   <div class="cursor-dot" id="cursorDot"></div>
@@ -65,16 +95,15 @@
   </nav>
 
   <!-- ═══════════════ HERO ═══════════════ -->
-  <section class="hero" id="home">
+  <main id="main-content">
+  <section class="hero" id="home" aria-label="Hero – Introduction">
     <div class="hero-bg">
       <div class="hero-grid"></div>
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
       <div class="orb orb-3"></div>
     </div>
-    <div class="hero-photo-wrap">
-       <img src="profile.jpg" alt="M Zubair Aslam" class="hero-photo" />
-    </div>
+
     <div class="hero-content">
       <div class="hero-tag">
         <span class="tag-dot"></span>
@@ -132,13 +161,13 @@
   </section>
 
   <!-- ═══════════════ ABOUT ═══════════════ -->
-  <section class="section about" id="about">
+  <section class="section about" id="about" aria-label="About Me">
     <div class="container">
       <div class="about-grid">
         <div class="about-visual" data-aos="fade-right">
           <div class="about-img-wrap">
-           <div class="about-avatar">
-              <img src="profile.jpg" alt="M Zubair Aslam" class="profile-photo" />
+            <div class="about-avatar">
+              <div class="avatar-initials">ZA</div>
               <div class="avatar-ring ring-1"></div>
               <div class="avatar-ring ring-2"></div>
             </div>
@@ -189,7 +218,7 @@
   </section>
 
   <!-- ═══════════════ SKILLS ═══════════════ -->
-  <section class="section skills" id="skills">
+  <section class="section skills" id="skills" aria-label="Skills and Technologies">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <div class="section-label">My Arsenal</div>
@@ -288,7 +317,7 @@
   </section>
 
   <!-- ═══════════════ PROJECTS ═══════════════ -->
-  <section class="section projects" id="projects">
+  <section class="section projects" id="projects" aria-label="Featured Projects">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <div class="section-label">What I've Built</div>
@@ -411,7 +440,7 @@
   </section>
 
   <!-- ═══════════════ SERVICES ═══════════════ -->
-  <section class="section services" id="services">
+  <section class="section services" id="services" aria-label="Freelance Services">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <div class="section-label">What I Offer</div>
@@ -476,10 +505,10 @@
       </div>
 
       <div class="services-cta" data-aos="fade-up">
-        <a href="https://www.fiverr.com/mzubairaslammzu/buying?source=avatar_menu_profile" target="_blank" class="btn btn-primary">
+        <a href="https://fiverr.com" target="_blank" class="btn btn-primary">
           <i class="fab fa-fiverr"></i> Hire on Fiverr
         </a>
-        <a href="https://www.freelancer.pk/u/mzubairaslamm3" target="_blank" class="btn btn-outline">
+        <a href="https://freelancer.com" target="_blank" class="btn btn-outline">
           <i class="fas fa-handshake"></i> Hire on Freelancer
         </a>
       </div>
@@ -487,7 +516,7 @@
   </section>
 
   <!-- ═══════════════ EDUCATION ═══════════════ -->
-  <section class="section education" id="education">
+  <section class="section education" id="education" aria-label="Education and Experience">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <div class="section-label">My Journey</div>
@@ -501,7 +530,7 @@
           <div class="timeline-content">
             <div class="timeline-date">2023 – Present</div>
             <h3>BS Software Engineering</h3>
-            <h4>Lahore Garrison University, Lahore</h4>
+            <h4>University of Engineering & Technology, Lahore</h4>
             <p>Currently in 4th semester, studying core CS fundamentals: Data Structures, Algorithms, OOP, Database Systems, and Web Engineering.</p>
             <div class="timeline-tags">
               <span>4th Semester</span><span>CGPA: 3.5+</span><span>Active</span>
@@ -525,10 +554,10 @@
         <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <div class="timeline-date">2022 – 2024</div>
-            <h3>Intermediate (ICS)</h3>
-            <h4>Garrison Colleges For boys (APS)</h4>
-            <p>Completed FSc Information Computer Science(ICS) with distinction, developing strong foundations in Mathematics and Physics.</p>
+            <div class="timeline-date">2022 – 2023</div>
+            <h3>Intermediate (Pre-Engineering)</h3>
+            <h4>Punjab Group of Colleges</h4>
+            <p>Completed FSc Pre-Engineering with distinction, developing strong foundations in Mathematics and Physics.</p>
             <div class="timeline-tags">
               <span>A Grade</span><span>Pre-Engineering</span>
             </div>
@@ -538,7 +567,7 @@
         <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <div class="timeline-date">2020 - 2022</div>
+            <div class="timeline-date">2022</div>
             <h3>Self-Taught Web Development</h3>
             <h4>Online Learning</h4>
             <p>Completed multiple online courses in HTML, CSS, and JavaScript. Built first portfolio and deployed web projects.</p>
@@ -553,7 +582,7 @@
   </section>
 
   <!-- ═══════════════ CONTACT ═══════════════ -->
-  <section class="section contact" id="contact">
+  <section class="section contact" id="contact" aria-label="Contact Me">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <div class="section-label">Get In Touch</div>
@@ -571,7 +600,7 @@
               <div class="contact-icon"><i class="fas fa-envelope"></i></div>
               <div>
                 <span class="contact-label">Email</span>
-                <a href="mailto:mzubairaslammzubairaslam0@gmail.com">mzubairaslammzubairaslam0@gmail.com</a>
+                <a href="mailto:mzubairaslamdev@gmail.com">mzubairaslamdev@gmail.com</a>
               </div>
             </div>
             <div class="contact-item">
@@ -591,22 +620,22 @@
           </div>
 
           <div class="social-links">
-            <a href="https://github.com/mzab-bit/mzab-bit" target="_blank" class="social-btn github" title="GitHub">
+            <a href="https://github.com" target="_blank" class="social-btn github" title="GitHub">
               <i class="fab fa-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/m-zubair-458b7b3a2/" target="_blank" class="social-btn linkedin" title="LinkedIn">
+            <a href="https://linkedin.com" target="_blank" class="social-btn linkedin" title="LinkedIn">
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://www.fiverr.com/mzubairaslammzu/buying?source=avatar_menu_profile" target="_blank" class="social-btn fiverr" title="Fiverr">
+            <a href="https://fiverr.com" target="_blank" class="social-btn fiverr" title="Fiverr">
               <i class="fas fa-briefcase"></i>
             </a>
-            <a href="https://www.freelancer.pk/u/mzubairaslamm3" target="_blank" class="social-btn freelancer" title="Freelancer">
+            <a href="https://freelancer.com" target="_blank" class="social-btn freelancer" title="Freelancer">
               <i class="fas fa-handshake"></i>
             </a>
           </div>
         </div>
 
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xrejklwa" method="POST" data-aos="fade-left">
+        <form class="contact-form" id="contactForm" data-aos="fade-left" novalidate>
           <div class="form-row">
             <div class="form-group">
               <label for="name">Full Name</label>
@@ -640,8 +669,10 @@
     </div>
   </section>
 
+  </main><!-- end #main-content -->
+
   <!-- ═══════════════ FOOTER ═══════════════ -->
-  <footer class="footer">
+  <footer class="footer" aria-label="Site Footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
@@ -659,9 +690,9 @@
         </div>
 
         <div class="footer-social">
-          <a href="https://github.com/mzab-bit" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/m-zubair-aslamm" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.fiverr.com/mzubairaslammzu/buying?source=avatar_menu_profile" target="_blank"><i class="fas fa-briefcase"></i></a>
+          <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://fiverr.com" target="_blank"><i class="fas fa-briefcase"></i></a>
         </div>
       </div>
 
