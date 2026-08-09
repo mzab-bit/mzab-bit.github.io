@@ -1,138 +1,104 @@
 /* ═══════════════════════════════════════════════
-   M Zubair Aslam — Portfolio Script
-   Features: Typing, Theme, AOS, Nav, Cursor,
-             Counter, Skill Bars, Form Validation
+   M Zubair Aslam — 2050 Vision Portfolio Script
 ═══════════════════════════════════════════════ */
 
 'use strict';
 
-// ── DOM ready ──────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
   initCursor();
   initNavbar();
   initTyping();
   initAOS();
   initSkillBars();
   initCounters();
+  initParticles();
   initContactForm();
   initBackToTop();
   initFooterYear();
   initSmoothScroll();
+  initTiltCards();
 });
 
-/* ═══════════════ THEME TOGGLE ═══════════════ */
-function initTheme() {
-  const btn  = document.getElementById('themeToggle');
-  const icon = document.getElementById('themeIcon');
-  const html = document.documentElement;
-
-  // Restore saved preference
-  const saved = localStorage.getItem('theme') || 'dark';
-  html.setAttribute('data-theme', saved);
-  updateIcon(saved);
-
-  btn.addEventListener('click', () => {
-    const current = html.getAttribute('data-theme');
-    const next    = current === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    updateIcon(next);
-  });
-
-  function updateIcon(theme) {
-    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-  }
-}
-
-/* ═══════════════ CUSTOM CURSOR ═══════════════ */
+/* ═══ CUSTOM CURSOR ═══ */
 function initCursor() {
-  const dot  = document.getElementById('cursorDot');
-  const ring = document.getElementById('cursorRing');
-  if (!dot || !ring) return;
+  const cursor = document.getElementById('cursor');
+  const trail  = document.getElementById('cursorTrail');
+  if (!cursor || !trail) return;
+  if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
 
-  // Only show on devices with fine pointer (mouse)
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  let mx = 0, my = 0, tx = 0, ty = 0;
 
-  let mx = 0, my = 0;
-  let rx = 0, ry = 0;
-  let rafId;
-
-  document.addEventListener('mousemove', (e) => {
-    mx = e.clientX;
-    my = e.clientY;
-    dot.style.left  = mx + 'px';
-    dot.style.top   = my + 'px';
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top  = my + 'px';
   });
 
-  // Smooth ring follow
-  function animateRing() {
-    rx += (mx - rx) * 0.18;
-    ry += (my - ry) * 0.18;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
-    rafId = requestAnimationFrame(animateRing);
-  }
-  animateRing();
+  (function animTrail() {
+    tx += (mx - tx) * 0.15;
+    ty += (my - ty) * 0.15;
+    trail.style.left = tx + 'px';
+    trail.style.top  = ty + 'px';
+    requestAnimationFrame(animTrail);
+  })();
 
-  // Hover effect on interactive elements
-  const hoverEls = 'a, button, .project-card, .skill-card, .service-card';
-  document.querySelectorAll(hoverEls).forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
+  document.querySelectorAll('a, button, .proj-card, .svc-card, .skill-block').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width  = '20px';
+      cursor.style.height = '20px';
+      trail.style.width   = '50px';
+      trail.style.height  = '50px';
+      trail.style.opacity = '0.2';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width  = '10px';
+      cursor.style.height = '10px';
+      trail.style.width   = '36px';
+      trail.style.height  = '36px';
+      trail.style.opacity = '0.4';
+    });
   });
 }
 
-/* ═══════════════ STICKY NAVBAR ═══════════════ */
+/* ═══ NAVBAR ═══ */
 function initNavbar() {
-  const navbar    = document.getElementById('navbar');
+  const nav       = document.getElementById('nav');
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
   const links     = document.querySelectorAll('.nav-link');
 
-  // Scroll → add .scrolled class
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 30);
-    updateActiveLink();
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+    updateActive();
   }, { passive: true });
 
-  // Hamburger toggle
-  hamburger.addEventListener('click', () => {
+  hamburger?.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     navLinks.classList.toggle('open');
     document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
   });
 
-  // Close mobile menu on link click
   links.forEach(link => {
     link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      navLinks.classList.remove('open');
+      hamburger?.classList.remove('open');
+      navLinks?.classList.remove('open');
       document.body.style.overflow = '';
     });
   });
 
-  // Active nav link based on scroll position
-  function updateActiveLink() {
-    const sections = document.querySelectorAll('section[id]');
+  function updateActive() {
     let current = '';
-
-    sections.forEach(sec => {
-      const top = sec.offsetTop - 120;
-      if (window.scrollY >= top) current = sec.getAttribute('id');
+    document.querySelectorAll('section[id]').forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
     });
-
-    links.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-    });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${current}`));
   }
-
-  updateActiveLink();
+  updateActive();
 }
 
-/* ═══════════════ TYPING ANIMATION ═══════════════ */
+/* ═══ TYPING ANIMATION ═══ */
 function initTyping() {
-  const el     = document.getElementById('typedText');
+  const el = document.getElementById('typedText');
   if (!el) return;
 
   const phrases = [
@@ -140,292 +106,226 @@ function initTyping() {
     'Software Engineer',
     'Problem Solver',
     'DSA Enthusiast',
-    'Open to Freelance',
+    'Freelance Dev',
   ];
 
-  let phraseIdx = 0;
-  let charIdx   = 0;
-  let isDeleting = false;
-  let delay     = 120;
+  let pi = 0, ci = 0, deleting = false, delay = 120;
 
   function type() {
-    const current = phrases[phraseIdx];
-    el.textContent = isDeleting
-      ? current.substring(0, charIdx - 1)
-      : current.substring(0, charIdx + 1);
+    const phrase = phrases[pi];
+    el.textContent = deleting
+      ? phrase.substring(0, ci - 1)
+      : phrase.substring(0, ci + 1);
+    ci = deleting ? ci - 1 : ci + 1;
 
-    charIdx = isDeleting ? charIdx - 1 : charIdx + 1;
-
-    if (!isDeleting && charIdx === current.length) {
-      // Finished typing — pause then delete
-      delay = 1800;
-      isDeleting = true;
-    } else if (isDeleting && charIdx === 0) {
-      // Finished deleting — next phrase
-      isDeleting = false;
-      phraseIdx  = (phraseIdx + 1) % phrases.length;
-      delay = 400;
-    } else {
-      delay = isDeleting ? 60 : 120;
-    }
-
+    if (!deleting && ci === phrase.length) { delay = 1800; deleting = true; }
+    else if (deleting && ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; delay = 400; }
+    else { delay = deleting ? 55 : 110; }
     setTimeout(type, delay);
   }
-
   type();
 }
 
-/* ═══════════════ SCROLL ANIMATIONS (AOS-like) ═══════════════ */
+/* ═══ SCROLL ANIMATIONS (AOS) ═══ */
 function initAOS() {
-  const elements = document.querySelectorAll('[data-aos]');
-  if (!elements.length) return;
-
-  // Apply delay from data attribute
-  elements.forEach(el => {
-    const delay = el.getAttribute('data-aos-delay');
-    if (delay) el.style.transitionDelay = delay + 'ms';
+  const els = document.querySelectorAll('[data-aos]');
+  els.forEach(el => {
+    const d = el.getAttribute('data-aos-delay');
+    if (d) el.style.transitionDelay = d + 'ms';
   });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('aos-animate');
-      }
-    });
-  }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
-  });
-
-  elements.forEach(el => observer.observe(el));
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('aos-animate'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => obs.observe(el));
 }
 
-/* ═══════════════ SKILL BARS ═══════════════ */
+/* ═══ SKILL BARS ═══ */
 function initSkillBars() {
-  const bars = document.querySelectorAll('.skill-bar');
-  if (!bars.length) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const bar   = entry.target;
-        const width = bar.getAttribute('data-width');
-        const fill  = bar.querySelector('.skill-fill');
-        if (fill) {
-          setTimeout(() => { fill.style.width = width + '%'; }, 200);
-        }
-        observer.unobserve(bar);
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const fill = e.target.querySelector('.sb-fill');
+        if (fill) setTimeout(() => { fill.style.width = e.target.getAttribute('data-w') + '%'; }, 200);
+        obs.unobserve(e.target);
       }
     });
   }, { threshold: 0.3 });
-
-  bars.forEach(bar => observer.observe(bar));
+  document.querySelectorAll('.sb-bar').forEach(b => obs.observe(b));
 }
 
-/* ═══════════════ HERO COUNTERS ═══════════════ */
+/* ═══ COUNTERS ═══ */
 function initCounters() {
-  const stats = document.querySelectorAll('.stat-num');
-  if (!stats.length) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animCount(e.target); obs.unobserve(e.target); }
     });
   }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-val').forEach(el => obs.observe(el));
 
-  stats.forEach(el => observer.observe(el));
-
-  function animateCounter(el) {
-    const target   = +el.getAttribute('data-target');
-    const duration = 1400;
-    const step     = 16;
-    const increment = target / (duration / step);
-    let current = 0;
-
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        el.textContent = target;
-        clearInterval(timer);
-      } else {
-        el.textContent = Math.floor(current);
-      }
+  function animCount(el) {
+    const target = +el.getAttribute('data-target');
+    const dur = 1400, step = 16;
+    const inc = target / (dur / step);
+    let cur = 0;
+    const t = setInterval(() => {
+      cur += inc;
+      if (cur >= target) { el.textContent = target; clearInterval(t); }
+      else el.textContent = Math.floor(cur);
     }, step);
   }
 }
 
-/* ═══════════════ CONTACT FORM ═══════════════ */
+/* ═══ PARTICLES CANVAS ═══ */
+function initParticles() {
+  const canvas = document.getElementById('particlesCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Create particles
+  for (let i = 0; i < 60; i++) {
+    particles.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      r: Math.random() * 1.5 + 0.5,
+      alpha: Math.random() * 0.4 + 0.1,
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W;
+      if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      if (p.y > H) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0, 245, 255, ${p.alpha})`;
+      ctx.fill();
+    });
+
+    // Draw connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(0, 245, 255, ${0.08 * (1 - dist / 120)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+/* ═══ CONTACT FORM ═══ */
 function initContactForm() {
-  const form      = document.getElementById('contactForm');
+  const form    = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  const btn     = document.getElementById('submitBtn');
   if (!form) return;
 
-  const submitBtn = document.getElementById('submitBtn');
-  const success   = document.getElementById('formSuccess');
-
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
+    const content = btn.querySelector('.btn-content');
+    content.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    btn.disabled = true;
 
-    if (!validateForm()) return;
-
-    // Simulate sending
-const formData = new FormData(form);
-
-fetch(form.action, {
-  method: 'POST',
-  body: formData,
-  headers: { 'Accept': 'application/json' }
-})
-.then(response => {
-  if (response.ok) {
-    submitBtn.querySelector('.btn-text').style.display = 'flex';
-    submitBtn.querySelector('.btn-loading').style.display = 'none';
-    submitBtn.disabled = false;
-    success.classList.add('show');
-    form.reset();
-    setTimeout(() => success.classList.remove('show'), 5000);
-  } else {
-    alert('Message send nahi hua. Dobara try karo!');
-    submitBtn.querySelector('.btn-text').style.display = 'flex';
-    submitBtn.querySelector('.btn-loading').style.display = 'none';
-    submitBtn.disabled = false;
-  }
-})
-.catch(() => {
-  alert('Network error. Dobara try karo!');
-  submitBtn.querySelector('.btn-text').style.display = 'flex';
-  submitBtn.querySelector('.btn-loading').style.display = 'none';
-  submitBtn.disabled = false;
-});
-  });
-
-  // Clear errors on input
-  ['name', 'email', 'message'].forEach(id => {
-    const input = document.getElementById(id);
-    if (input) {
-      input.addEventListener('input', () => {
-        input.classList.remove('error');
-        const err = document.getElementById(id + 'Error');
-        if (err) err.classList.remove('show');
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
       });
+      if (res.ok) {
+        success.classList.add('show');
+        form.reset();
+        setTimeout(() => success.classList.remove('show'), 5000);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch {
+      alert('Network error. Please try again.');
+    } finally {
+      content.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+      btn.disabled = false;
     }
   });
-
-  function validateForm() {
-    let valid = true;
-
-    // Name
-    const name = document.getElementById('name');
-    if (!name.value.trim()) {
-      showError(name, 'nameError'); valid = false;
-    }
-
-    // Email
-    const email = document.getElementById('email');
-    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email.value.trim() || !emailRe.test(email.value)) {
-      showError(email, 'emailError'); valid = false;
-    }
-
-    // Message
-    const message = document.getElementById('message');
-    if (!message.value.trim()) {
-      showError(message, 'messageError'); valid = false;
-    }
-
-    return valid;
-  }
-
-  function showError(input, errorId) {
-    input.classList.add('error');
-    const err = document.getElementById(errorId);
-    if (err) err.classList.add('show');
-  }
 }
 
-/* ═══════════════ BACK TO TOP ═══════════════ */
+/* ═══ BACK TO TOP ═══ */
 function initBackToTop() {
-  const btn = document.getElementById('backToTop');
+  const btn = document.getElementById('backTop');
   if (!btn) return;
-
-  window.addEventListener('scroll', () => {
-    btn.classList.toggle('show', window.scrollY > 500);
-  }, { passive: true });
-
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  window.addEventListener('scroll', () => btn.classList.toggle('show', window.scrollY > 500), { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
-/* ═══════════════ FOOTER YEAR ═══════════════ */
+/* ═══ FOOTER YEAR ═══ */
 function initFooterYear() {
-  const el = document.getElementById('currentYear');
+  const el = document.getElementById('yr');
   if (el) el.textContent = new Date().getFullYear();
 }
 
-/* ═══════════════ SMOOTH SCROLL ═══════════════ */
+/* ═══ SMOOTH SCROLL ═══ */
 function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const targetId = anchor.getAttribute('href');
-      const target   = document.querySelector(targetId);
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
       if (!target) return;
-
       e.preventDefault();
-      const navH   = document.getElementById('navbar')?.offsetHeight || 72;
-      const top    = target.getBoundingClientRect().top + window.scrollY - navH;
-
-      window.scrollTo({ top, behavior: 'smooth' });
+      const navH = document.getElementById('nav')?.offsetHeight || 68;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
     });
   });
 }
 
-/* ═══════════════ PROJECT CARD TILT EFFECT ═══════════════ */
-document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.project-card, .service-card');
-
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect   = card.getBoundingClientRect();
-      const x      = e.clientX - rect.left;
-      const y      = e.clientY - rect.top;
-      const cx     = rect.width  / 2;
-      const cy     = rect.height / 2;
-      const rx     = ((y - cy) / cy) * 4;
-      const ry     = ((x - cx) / cx) * -4;
-
-      card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-8px)`;
+/* ═══ 3D TILT CARDS ═══ */
+function initTiltCards() {
+  document.querySelectorAll('.proj-card, .svc-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width  - 0.5;
+      const y = (e.clientY - rect.top)  / rect.height - 0.5;
+      card.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-6px)`;
     });
-
     card.addEventListener('mouseleave', () => {
       card.style.transform = '';
     });
   });
-});
+}
 
-/* ═══════════════ HERO PARALLAX ═══════════════ */
+/* ═══ HERO PARALLAX ═══ */
 document.addEventListener('DOMContentLoaded', () => {
   const orbs = document.querySelectorAll('.orb');
-  if (!orbs.length) return;
-
-  document.addEventListener('mousemove', (e) => {
+  document.addEventListener('mousemove', e => {
     const cx = window.innerWidth  / 2;
     const cy = window.innerHeight / 2;
     const dx = (e.clientX - cx) / cx;
     const dy = (e.clientY - cy) / cy;
-
     orbs.forEach((orb, i) => {
-      const factor = (i + 1) * 8;
-      orb.style.transform = `translate(${dx * factor}px, ${dy * factor}px)`;
+      const f = (i + 1) * 10;
+      orb.style.transform = `translate(${dx * f}px, ${dy * f}px)`;
     });
   });
-});
-
-/* ═══════════════ NAV HIGHLIGHT INDICATOR ═══════════════ */
-document.addEventListener('DOMContentLoaded', () => {
-  // Add glowing line under active nav link
-  const activeLink = document.querySelector('.nav-link.active');
-  if (activeLink) activeLink.style.position = 'relative';
 });
